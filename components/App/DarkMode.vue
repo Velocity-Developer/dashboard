@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Button @click="toggleDarkMode" variant="text" severity="contrast" size="small">
-      <Icon v-if="dark" name="lucide:sun" class="text-amber-400" size="1.5em" />
-      <Icon v-else name="lucide:moon" class="text-zinc-700" size="1.5em"/>
+    <Button @click="toggleDarkMode" variant="text" severity="contrast" class="!px-2">
+      <Icon v-if="dark" name="lucide:sun" class="text-amber-400"/>
+      <Icon v-else name="lucide:moon" class="text-zinc-700"/>
     </Button>
   </div>
 </template>
