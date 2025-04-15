@@ -19,6 +19,7 @@
     "@primeuix/themes": "^1.0.1",
     "@primevue/forms": "^4.3.3",
     "@primevue/nuxt-module": "^4.3.3",
+    "chart.js": "^4.4.8",
     "dayjs-nuxt": "^2.1.11",
     "nuxt": "^3.16.2",
     "nuxt-auth-sanctum": "0.6.3",

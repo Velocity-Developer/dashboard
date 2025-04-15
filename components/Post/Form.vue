@@ -85,7 +85,7 @@
           <FileUpload mode="basic" @select="onImageSelect" customUpload auto severity="secondary" class="p-button-outlined" />
         </div>
                 
-        <div v-if="authorData" class="mt-5 border p-4 rounded-lg flex items-center">
+        <div v-if="authorData" class="mt-5 border dark:border-zinc-800 p-4 rounded-lg flex items-center">
           <Avatar :image="authorData.avatar_url" size="large" shape="circle" class="mr-2" />
           {{ authorData.name }}
         </div>

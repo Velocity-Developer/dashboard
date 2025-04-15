@@ -9,6 +9,6 @@
 
 <style scoped>
 div {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans','Plus Jakarta Sans Fallback', sans-serif;
 }
 </style>

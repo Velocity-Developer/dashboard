@@ -54,6 +54,9 @@
       <Column field="actions" header="">
         <template #body="slotProps">
           <div class="flex justify-end items-center gap-1">
+            <Button @click="openDialog(slotProps.data)"  type="button" severity="secondary" size="small" variant="text" class="!px-1">
+              <Icon name="lucide:eye" size="small"/>
+            </Button>
             <Button as="router-link" :to="'/posts/edit/'+slotProps.data.id" type="button" severity="secondary" size="small" variant="text" class="!px-1">
               <Icon name="lucide:pen" size="small"/>
             </Button>
@@ -88,6 +91,10 @@
         >
       </Paginator>
     </div>
+    
+    <Dialog v-model:visible="dialog" header="Post" :style="{ width: '40rem', minHeight: '50vh' }" :breakpoints="{ '1000px': '40rem', '768px': '90vw' }" :modal="true">
+      <PostPreview :data="selectedItem" />
+    </Dialog>
 
   </div>
 </template>
@@ -159,4 +166,10 @@ const confirmDelete = (id: any) => {
     });
 }
 
+const dialog = ref(false);
+const selectedItem = ref();
+const openDialog = (data: any) => {
+    dialog.value = true;
+    selectedItem.value = data;   
+}
 </script>
