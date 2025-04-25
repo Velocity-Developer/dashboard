@@ -1,5 +1,5 @@
 <template>
-  <UserLayoutEdit>
+  <DashUserLayoutEdit>
 
     <h3>Update password</h3>
     <p class="text-sm text-zinc-400 mb-4">Ensure your account is using a long, random password to stay secure</p>
@@ -27,7 +27,7 @@
 
     </form>
 
-  </UserLayoutEdit>
+  </DashUserLayoutEdit>
 </template>
 
 <script setup lang="ts">

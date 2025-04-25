@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: 'Plus Jakarta Sans','Plus Jakarta Sans Fallback', sans-serif;
+}
+:root {
+    --primary: theme(colors.teal.500);
+    --secondary: theme(colors.orange.500);
+}

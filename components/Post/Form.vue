@@ -86,7 +86,19 @@
         </div>
                 
         <div v-if="authorData" class="mt-5 border dark:border-zinc-800 p-4 rounded-lg flex items-center">
-          <Avatar :image="authorData.avatar_url" size="large" shape="circle" class="mr-2" />
+          <Avatar 
+            :image="authorData.avatar_url" 
+            size="large" 
+            shape="circle" 
+            class="mr-2"        
+            :pt="{
+              image: (options) => ({
+                  class: [
+                      '!object-cover',
+                  ]
+              })
+            }"
+          />
           {{ authorData.name }}
         </div>
 
@@ -129,7 +141,7 @@ onMounted( async () => {
       Object.assign(form, res)
 
       if(res.featured_image){
-        srcImage.value = res.featured_image_url
+        srcImage.value = res.featured_image.full||res.featured_image.default
       }
 
       if(res.author_data){

@@ -3,17 +3,17 @@
   <div class="flex w-full min-h-screen">
 
     <div class="page-wrapper flex w-full transition duration-300 ease-in-out" :class="{'md:ps-[5rem]': useConfig.miniSidebar,'md:ps-[14rem]': !useConfig.miniSidebar }">
-      <div class="xl:block" :class="{ 'block z-[7]': useConfig.openSidebar, 'hidden md:block': !useConfig.openSidebar }">
+      <div class="xl:block" :class="{ 'block z-[90]': useConfig.openSidebar, 'hidden md:block': !useConfig.openSidebar }">
         <div class="flex">
-          <AppSidebar :toggleMini="minim"/>
+          <DashSidebar :toggleMini="minim"/>
         </div>
       </div>
       <div class="body-wrapper w-full bg-white dark:bg-zinc-900">
-        <AppHeader @toggleMini="toggleMini"/>
+        <DashHeader @toggleMini="toggleMini"/>
         <div class="container mx-auto p-6">
 
-          <div v-if="$route.meta.title" class="bg-emerald-50 dark:bg-zinc-800 p-3 md:p-5 rounded-lg mb-3 md:mb-5">
-            <h1 class="text-lg md:text-2xl font-medium text-zinc-700 dark:text-emerald-400 capitalize">
+          <div v-if="$route.meta.title" class="bg-primary-50 dark:bg-zinc-800 p-3 md:p-5 rounded-lg mb-3 md:mb-5">
+            <h1 class="text-lg md:text-2xl font-medium text-zinc-700 dark:text-primary-400 capitalize">
                 {{ $route.meta.title }}
             </h1>
             <div v-if="$route.meta.description" class="text-sm text-zinc-400">
@@ -28,7 +28,7 @@
 
       <div 
       @click="useConfig.openSidebar = false" 
-      class="fixed top-0 end-0 start-0 bottom-0 bg-black opacity-50 z-[6] md:hidden" 
+      class="fixed top-0 end-0 start-0 bottom-0 bg-black opacity-50 z-[80] md:hidden" 
       :class="{ 'hidden': !useConfig.openSidebar }"></div>
 
     </div>

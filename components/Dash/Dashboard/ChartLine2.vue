@@ -4,10 +4,10 @@
     <template #content>
 
       <div>
-        <div class="text-sm dark:text-zinc-400">Tahun ini</div>
+        <div class="text-sm dark:text-zinc-400">Minggu ini</div>
       </div>
       <div>
-        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[400px]" />
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[300px]" />
       </div>
     
     </template>
@@ -28,25 +28,23 @@ const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
     return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'],
         datasets: [
             {
-                label: 'Penjualan',
-                backgroundColor: documentStyle.getPropertyValue('--p-emerald-500'),
-                borderColor: documentStyle.getPropertyValue('--p-emerald-500'),
-                data: [25, 59, 40, 81, 56, 80, 90],
+                label: 'Pembuatan',
+                backgroundColor: documentStyle.getPropertyValue('--primary'),
+                borderColor: documentStyle.getPropertyValue('--primary'),
+                data: [25, 90, 40, 81],
                 pointRadius: 0,
-                tension: 0.4,
-                borderRadius: 10
+                tension: 0.4
             },
             {
-                label: 'Pemasukan',
-                backgroundColor: documentStyle.getPropertyValue('--p-sky-500'),
-                borderColor: documentStyle.getPropertyValue('--p-sky-500'),
-                data: [55, 59, 10, 71, 45, 80, 70],
+                label: 'Perpanjangan',
+                backgroundColor: documentStyle.getPropertyValue('--secondary'),
+                borderColor: documentStyle.getPropertyValue('--secondary'),
+                data: [50, 78, 40, 50],
                 pointRadius: 0,
-                tension: 0.4,
-                borderRadius: 10
+                tension: 0.4
             }
         ]
     };

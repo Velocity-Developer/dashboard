@@ -1,5 +1,7 @@
 <template>
 
+<div>
+
   <Message severity="error" class="mb-4 max-w-[400px] w-full mx-auto" v-if="route.query.redirect && route.query.redirect !== '/'">
     Hmmm, sepertinya anda mencoba mengakses halaman
     <em>"{{ route.query.redirect }}"</em>, silahkan login terlebih dahulu
@@ -25,7 +27,7 @@
       </IftaLabel>
 
       <div class="flex items-center gap-2 text-sm opacity-70">
-          <Checkbox v-model="credentials.remember" inputId="remember" name="remember" value="1" />
+          <Checkbox v-model="credentials.use_remember" id="remember" name="remember" value="1" />
           <label for="remember">Remember </label>
       </div>
 
@@ -42,6 +44,8 @@
 
       </div>
   </form>
+  
+</div>
 
 </template>
 
@@ -59,7 +63,7 @@
   const credentials = ref({
     email: '',
     password: '',
-    remember: false
+    use_remember: false
   } as any)
 
   const loginError = ref('')
@@ -67,8 +71,10 @@
   async function handleLogin() {
     isLoading.value = true
 
-    if(credentials.value.remember && credentials.value.remember[0] === '1') {
+    if(credentials.value.use_remember && credentials.value.use_remember[0] === '1') {
       credentials.value.remember = true
+    } else {
+      credentials.value.remember = false
     }
 
     try {

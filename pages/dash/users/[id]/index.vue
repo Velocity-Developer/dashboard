@@ -1,6 +1,6 @@
 <template>
 
-  <UserLayoutEdit>
+  <DashUserLayoutEdit>
     
     <h3>Profile information</h3>
     <p class="text-sm text-zinc-400 mb-4">Update profile name and email address</p>
@@ -48,7 +48,7 @@
       </Button>
     </div>
 
-  </UserLayoutEdit>
+  </DashUserLayoutEdit>
 
 </template>
 
@@ -157,7 +157,7 @@
           },
           accept: async () => {
               await client('/api/users/'+route.params.id, { method: 'DELETE' })   
-              navigateTo('/users')
+              navigateTo('/dash/users')
               toast.add({ severity: 'success', summary: 'Success', detail: 'Account has been deleted', life: 3000 });
           },
       });

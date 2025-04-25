@@ -71,7 +71,7 @@
   </Dialog>
 
   <Dialog v-model:visible="dialogPermissions" header="Permissions" :style="{ width: '40rem', minHeight: '20vh' }" :breakpoints="{ '1000px': '30rem', '768px': '90vw' }" :modal="true">
-    <PermissionsForm @update="refreshOptionPermissions"/>
+    <DashPermissionsForm @update="refreshOptionPermissions"/>
   </Dialog>
 
 
@@ -81,6 +81,8 @@
 definePageMeta({
     title: 'Settings Roles',
     description: 'Daftar Roles & Permissions User di Aplikasi',
+    middleware: ["auth"],
+    permission: 'edit-settings'
 })
 const client = useSanctumClient();
 const { data, status, error, refresh } = await useAsyncData(

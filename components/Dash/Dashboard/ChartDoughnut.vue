@@ -31,8 +31,8 @@ const setChartData = () => {
         datasets: [
             {
                 data: [540, 325, 702],
-                backgroundColor: [documentStyle.getPropertyValue('--p-emerald-500'), documentStyle.getPropertyValue('--p-sky-500'), documentStyle.getPropertyValue('--p-gray-500')],
-                hoverBackgroundColor: [documentStyle.getPropertyValue('--p-emerald-400'), documentStyle.getPropertyValue('--p-sky-400'), documentStyle.getPropertyValue('--p-gray-400')]
+                backgroundColor: [documentStyle.getPropertyValue('--primary'), documentStyle.getPropertyValue('--secondary'), documentStyle.getPropertyValue('---p-zinc-200')],
+                hoverBackgroundColor: [documentStyle.getPropertyValue('--primary'), documentStyle.getPropertyValue('--p-secondary'), documentStyle.getPropertyValue('--p-zinc-500')]
             }
         ]
     };

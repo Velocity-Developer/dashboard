@@ -23,8 +23,12 @@
       <Column field="title" header="Title">
         <template #body="slotProps">
           <div class="flex">
-            <img class="aspect-square object-cover w-8" :src="slotProps.data?.featured_image_url" :alt="slotProps.data?.title" />
-            <div class="ms-2">
+            <img 
+                class="aspect-square object-cover w-9 h-9" 
+                :src="slotProps.data?.featured_image?.thumbnail ?? slotProps.data?.featured_image?.default"
+                :alt="slotProps.data?.title"
+              /> 
+              <div class="ms-2">
               <nuxtLink :to="'/posts/edit/'+slotProps.data.id">{{ slotProps.data?.title }}</nuxtLink>
             </div>
           </div>
@@ -137,18 +141,27 @@ const confirmDelete = (id: any) => {
     confirm.require({
         message: 'Anda yakin hapus post ini?',
         header: 'Hapus Post',
-        accept: () => {
-            client(`/api/posts/${id.id}`, {
-                method: 'DELETE',
-            }).then(() => {
+        accept: async () => {
+            try {              
+              const re = await client(`/api/posts/${id.id}`, {
+                  method: 'DELETE',
+              })
+              toast.add({
+                severity: 'success',
+                summary: 'Berhasil!',
+                detail: 'Post berhasil dihapus',
+                life: 3000
+              });
+              refresh();
+            } catch (error) {
+                const er = useSanctumError(error)                 
                 toast.add({
-                  severity: 'success',
-                  summary: 'Berhasil!',
-                  detail: 'Post berhasil dihapus',
-                  life: 3000
+                    severity: 'error',
+                    summary: 'Gagal!',
+                    detail: er.msg ? er.msg : 'Terjadi kesalahan saat menghapus data',
+                    life: 3000
                 });
-                refresh();
-            });
+            }
         },
         rejectProps: {
             label: 'Cancel',

@@ -19,7 +19,7 @@
         </span>
       </span>
     </div>
-    <img :src="data.featured_image_url" class="w-full mb-2" :alt="data.title" />
+    <img :src="data.featured_image.full" class="w-full mb-2" :alt="data.title" />
 
     <div v-if="data.content" v-html="data.content" class="w-full break-all"></div>
 

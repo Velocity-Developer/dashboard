@@ -13,8 +13,12 @@
         <Column field="name" header="Name">
           <template #body="slotProps">
 
-            <NuxtLink :to="'/users/'+slotProps.data.id" class="flex justify-start items-center gap-2">
-              <Avatar :image="slotProps.data.avatar_url" size="small" shape="circle" class="max-w-[40px]"/>
+            <NuxtLink :to="'/dash/users/'+slotProps.data.id" class="flex justify-start items-center gap-2">
+              <Avatar
+              :image="slotProps.data.avatar_url"
+              size="small"
+              shape="circle"
+              class="max-w-[40px]"/>
               <div>{{ slotProps.data.name }}</div>
             </NuxtLink>
 
@@ -57,7 +61,7 @@
       <div class="text-xs border-b pb-1 mb-1 opacity-50">
         {{ selectedItem.name }}
       </div>
-      <Button as="router-link" :to="'users/'+selectedItem.id" severity="secondary" variant="text" class="!p-1 !flex !justify-start">
+      <Button as="router-link" :to="'/dash/users/'+selectedItem.id" severity="secondary" variant="text" class="!p-1 !flex !justify-start">
         <Icon name="lucide:pen" mode="svg"/> Edit
       </Button>
       <Button type="button" @click="confirmDelete(selectedItem)" severity="danger" variant="text" class="!p-1 !flex !justify-start">
@@ -67,7 +71,7 @@
   </Popover>
 
   <Dialog v-model:visible="dialog" :header="selectedItem ? 'Edit User' : 'Tambah User'" :style="{ width: '40rem', minHeight: '50vh' }" :breakpoints="{ '1000px': '40rem', '768px': '90vw' }" :modal="true">
-      <UserForm :data="selectedItem" :action="dialogAction" @close="dialog = false" @update="refresh"/>
+      <DashUserForm :data="selectedItem" :action="dialogAction" @close="dialog = false" @update="refresh"/>
   </Dialog>
 
 </template>
@@ -93,7 +97,7 @@ const { data, status, error, refresh } = await useAsyncData(
 const onPaginate = (event: { page: number }) => {
     page.value = event.page + 1; 
     refresh()
-    navigateTo('/users?page='+page.value)
+    navigateTo('/dash/users?page='+page.value)
 };
 
 const displayPop = async (event: Event, data: any) => {

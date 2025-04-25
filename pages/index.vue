@@ -2,28 +2,28 @@
 
   <div class="flex flex-col md:flex-row gap-5 mb-5">
     <div class="md:basis-[65%]">
-      <DashboardWelcome />
+      <DashDashboardWelcome />
     </div>
     <div class="md:basis-[35%]">
-      <DashboardChartLine />
+      <DashDashboardChartLine />
     </div>
   </div>
 
   <div class="flex flex-col md:flex-row gap-5 mb-5">
     <div class="md:basis-[65%]">
-      <DashboardChartBar />
+      <DashDashboardChartBar />
     </div>
     <div class="md:basis-[35%]">
-      <DashboardChartDoughnut />
+      <DashDashboardChartDoughnut />
     </div>
   </div>
   
   <div class="flex flex-col md:flex-row gap-5">
     <div class="md:basis-[35%]">
-      <DashboardChartLine2 />
+      <DashDashboardChartLine2 />
     </div>
     <div class="md:basis-[65%]">
-      <DashboardDataTable />
+      <DashDashboardDataTable />
     </div>
   </div>
 

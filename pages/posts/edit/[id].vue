@@ -10,6 +10,8 @@
 <script setup lang="ts">
 definePageMeta({
     title: 'Edit Post',
+    middleware: ["auth"],
+    permission: 'edit-post'
 })
 const route = useRoute()
 </script>

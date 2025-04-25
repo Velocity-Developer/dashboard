@@ -37,15 +37,15 @@ const route = useRoute()
 const items = ref([
   {
     label: 'Profile',
-    command: () => navigateTo('/users/'+route.params.id) 
+    command: () => navigateTo('/dash/users/'+route.params.id) 
   },
   {
     label: 'Avatar',
-    command: () => navigateTo('/users/'+route.params.id+'/avatar') 
+    command: () => navigateTo('/dash/users/'+route.params.id+'/avatar') 
   },
   {
     label: 'Password',
-    command: () => navigateTo('/users/'+route.params.id+'/password') 
+    command: () => navigateTo('/dash/users/'+route.params.id+'/password') 
   },
 ]);
 </script>

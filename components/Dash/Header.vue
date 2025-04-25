@@ -5,7 +5,7 @@
       <div class="mx-auto flex flex-wrap items-center justify-between">
 
         <div>
-          <Button variant="text" @click="useConfig.toggelOpenSidebar" class="md:hidden">
+          <Button variant="text" @click="useConfig.toggelOpenSidebar" class="md:!hidden">
             <Icon name="lucide:menu" />
           </Button>
           <Button variant="text" @click="useConfig.toggelMiniSidebar" class="hidden md:block">
@@ -14,9 +14,21 @@
         </div>
         <div class="flex flex-row justify-end gap-2 items-center">
 
-          <AppHeaderNotif />
-          <AppDarkMode />
-          <Avatar :image="avatarUrl" @click="toggleAvatar" shape="circle" class="cursor-pointer"/>
+          <DashHeaderNotif />
+          <DashDarkMode />
+          <Avatar 
+            :image="avatarUrl" 
+            @click="toggleAvatar" 
+            shape="circle" 
+            class="cursor-pointer"        
+            :pt="{
+              image: (options) => ({
+                  class: [
+                      '!object-cover',
+                  ]
+              })
+            }"
+          />
           <Menu ref="menuAvatar" id="overlay_avatar_menu" :model="itemsAVatar" :popup="true" />
 
         </div>
@@ -56,7 +68,7 @@ const itemsAVatar = ref([
         items: [
             {
                 label: 'Settings',
-                command: () => navigateTo('/users/'+useConfig.config.user.id) 
+                command: () => navigateTo('/dash/users/'+useConfig.config.user.id) 
             },
             {
                 label: 'Logout',

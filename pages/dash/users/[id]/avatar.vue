@@ -1,5 +1,5 @@
 <template>
-  <UserLayoutEdit>
+  <DashUserLayoutEdit>
     
     <h3>Update Avatar Photo</h3>
     <p class="text-sm text-zinc-400 mb-4">Upload an image for the user profile photo, use a square ratio and size less than 1mb</p>
@@ -19,7 +19,7 @@
 
     </form>
 
-  </UserLayoutEdit>
+  </DashUserLayoutEdit>
 </template>
 
 <script setup lang="ts">

@@ -21,7 +21,7 @@
 
           <ScrollPanel v-if="notifikasi.length" style="width: 100%; height: 200px">
           <div v-for="item in notifikasi" :key="item.id" class="border-b border-zinc-100 dark:border-zinc-800">
-            <Button @click="markRead(item)" severity="secondary" variant="text" class="flex flex-row justify-start gap-2 items-baseline w-full !py-1 text-left">
+            <Button @click="markRead(item)" severity="secondary" variant="text" class="flex flex-row !justify-start gap-2 !items-baseline w-full !py-1 text-left">
               <div>
                 <Icon name="lucide:mail" size="small" :ssr="true"/>   
               </div>           

@@ -70,6 +70,8 @@
 definePageMeta({
     title: 'Pengaturan Umum',
     description: 'Pengaturan Umum di Aplikasi',
+    middleware: ["auth"],
+    permission: 'edit-settings'
 })
 
 const useConfig = useConfigStore()
@@ -113,13 +115,14 @@ function onBGwelcomeSelect(event: any) {
 onMounted(async () => {
   const { data } = await useAsyncData(
     'config',
-    () => client('/api/config')
+    () => client('/api/dash/config')
   )
   form.app_name = data.value.app_name
   form.app_description = data.value.app_description
   previewLogo.value = data.value.app_logo
   previewLogoSmall.value = data.value.app_logo_small
   previewFavicon.value = data.value.app_favicon
+  previewBGwelcome.value = data.value.bg_welcome
 })
 
 const handleSubmit = async () => {
@@ -144,7 +147,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    const res = await client('/api/setconfig', {
+    const res = await client('/api/dash/setconfig', {
       method: 'POST',
       body: formData
     })
@@ -155,7 +158,7 @@ const handleSubmit = async () => {
       life: 3000
     });
     
-    const getconfig = await client('/api/config');
+    const getconfig = await client('/api/dash/config');
     useConfig.setConfig(getconfig);
 
   } catch (error) {
